@@ -1,0 +1,12 @@
+{
+  "name": "polywrite-extension",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "build": "zip -r polywrite.zip * -x node_modules/**"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}

@@ -1,0 +1,17 @@
+:root {
+  --pw-accent: #3B82F6;
+}
+#polywrite-overlay {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  background: var(--tw-bg-opacity,1) var(--tw-bg-color,white);
+  color: #111827;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+@media (prefers-color-scheme: dark) {
+  #polywrite-overlay {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+}
