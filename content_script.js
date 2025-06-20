@@ -13,10 +13,13 @@ function createOverlay() {
   overlay.style.zIndex = 10000;
   overlay.innerHTML = '<div id="pw-errors" class="text-sm"></div>' +
     '<button id="pw-improve" class="mt-2 text-blue-600 underline">'+
-    chrome.i18n.getMessage('improve')+'</button>';
+    chrome.i18n.getMessage('improve')+'</button>' +
+    '<button id="pw-rewrite" class="mt-2 ml-2 text-blue-600 underline">'+
+    chrome.i18n.getMessage('rewrite')+'</button>';
   document.body.appendChild(overlay);
   overlay.style.display = 'none';
   document.getElementById('pw-improve').addEventListener('click', improveText);
+  document.getElementById('pw-rewrite').addEventListener('click', rewriteText);
 }
 
 function positionOverlay() {
@@ -71,6 +74,14 @@ async function improveText() {
     }
   });
   activeElement.value = improved;
+  overlay.style.display = 'none';
+}
+
+async function rewriteText() {
+  const text = activeElement.value;
+  const response = await chrome.runtime.sendMessage({ type: 'rewrite-text', text });
+  if (!response.ok) return;
+  activeElement.value = response.text;
   overlay.style.display = 'none';
 }
 

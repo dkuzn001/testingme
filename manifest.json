@@ -18,7 +18,8 @@
     "activeTab"
   ],
   "host_permissions": [
-    "https://api.languagetool.org/*"
+    "https://api.languagetool.org/*",
+    "https://api.openai.com/*"
   ],
   "content_scripts": [
     {
