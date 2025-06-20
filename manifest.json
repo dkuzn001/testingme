@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "PolyWrite",
+  "description": "Assist in writing well-formed sentences across languages.",
+  "version": "0.1.0",
+  "icons": {
+    "24": "icon.svg"
+  },
+  "action": {
+    "default_popup": "ui/popup.html",
+    "default_icon": "icon.svg"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api.languagetool.org/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "css": ["ui/overlay.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "default_locale": "en"
+}
